@@ -2,5 +2,5 @@
 //var phonecatControllers = angular.module('phonecatControllers', []);
 
 angular.module('myApp').controller('homeCtrl', ['$scope', function ($scope) {
-
+    $scope.welcome = 'Welcome to your scaffolded AngularJs app with Foundation CSS framework, Karma and Jasmine';
 }]);

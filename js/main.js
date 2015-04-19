@@ -13,7 +13,16 @@ myApp.config(['$routeProvider',
                 templateUrl: 'partials/contact.html',
                 controller: 'contactCtrl'
             }).
+            when('/password', {
+                templateUrl: 'partials/password.html',
+                controller: 'passwordCtrl'
+            }).
             otherwise({
                 redirectTo: '/home'
             });
     }]);
+
+//myApp.controller('testCtrl',function testCtrl() {
+//    var welcome = this;
+//    welcome.greeting = 'hi';
+//});
