@@ -1,5 +1,6 @@
 var myApp = angular.module('myApp', [
-    'ngRoute'
+    'ngRoute',
+    'ngResource'
 ]);
 
 myApp.config(['$routeProvider',
@@ -22,7 +23,17 @@ myApp.config(['$routeProvider',
             });
     }]);
 
-//myApp.controller('testCtrl',function testCtrl() {
-//    var welcome = this;
-//    welcome.greeting = 'hi';
-//});
+myApp.factory('UserFactory', function($resource){
+    return $resource('users.json', { get: { isArray: true } }
+    );
+});
+
+myApp.controller('MainCtrl', function($scope, UserFactory) {
+    $scope.text = 'Hello World!';
+    UserFactory.query().$promise.then(function(users) {
+        console.log(users);
+        $scope.users = users;
+    });;
+
+});
+
